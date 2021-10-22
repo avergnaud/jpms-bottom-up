@@ -1,0 +1,1 @@
+javac -cp "_mods/*" -d care care\zoo\animal\care\*.java
