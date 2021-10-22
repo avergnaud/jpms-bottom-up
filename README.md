@@ -48,8 +48,8 @@ module zoo.animal.feeding {
 	exports zoo.animal.feeding.api to zoo.animal.care;
 }
 ```
-javac returns a warning:
 
+javac returns a warning. This is logical since care is not a module:
 ```
 javac -p _mods -d feeding/ feeding/module-info.java feeding/zoo/animal/feeding/api/*.java feeding/zoo/animal/feeding/internal/*.java
 feeding\module-info.java:2: warning: [module] module not found: zoo.animal.care
@@ -57,6 +57,8 @@ feeding\module-info.java:2: warning: [module] module not found: zoo.animal.care
                                                     ^
 1 warning
 ```
+Nothing is exported.
+
 * 5_care-run-from-jar.bat
 ```
 java -p "_mods" --add-modules zoo.animal.feeding -cp "_jars/*" zoo.animal.care.Care
